@@ -1,24 +1,29 @@
 console.log('JS-OK');
 
-// const app = new Vue(
-//     {
-//         el: '#root',
-//         data: {
+ const app = new Vue(
+     {
+         el: '#root',
+         data: {
+            emails: []
+         },
+         
 
-//         },
-//     },
-// )
-let elementHTML = document.getElementById('root')
+ 
+created(){
+ //let elementHTML = document.getElementById('root')
 
 for(let i = 0; i < 10; i++){
     axios
         .get('https://flynn.boolean.careers/exercises/api/random/mail')
-        .then(function(response) {
+        .then((response) => {
 
             const result = response.data.response;
-            console.log(result)
-            elementHTML.innerHTML += `<li>${result}</li>`
-            
+            //elementHTML.innerHTML += `<li>${result}</li>`
+            this.emails.push(result)
+            console.log(this.emails)
+
         }
     )
 };
+},
+});
