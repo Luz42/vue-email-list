@@ -8,7 +8,7 @@ console.log('JS-OK');
 //         },
 //     },
 // )
-
+let elementHTML = document.getElementById('root')
 
 for(let i = 0; i < 10; i++){
     axios
@@ -17,7 +17,8 @@ for(let i = 0; i < 10; i++){
 
             const result = response.data.response;
             console.log(result)
+            elementHTML.innerHTML += `<li>${result}</li>`
             
         }
-        )
+    )
 };
