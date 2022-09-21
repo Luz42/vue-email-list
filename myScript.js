@@ -6,7 +6,7 @@ console.log('JS-OK');
          data: {
             emails: []
          },
-         
+
 
  
 created(){
@@ -17,11 +17,12 @@ for(let i = 0; i < 10; i++){
         .get('https://flynn.boolean.careers/exercises/api/random/mail')
         .then((response) => {
 
-            const result = response.data.response;
+            const { data, status } = response;
             //elementHTML.innerHTML += `<li>${result}</li>`
-            this.emails.push(result)
+            if (status === 200){
+            this.emails.push(data.response)
             console.log(this.emails)
-
+            }
         }
     )
 };
